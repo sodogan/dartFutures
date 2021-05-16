@@ -8,21 +8,14 @@ import 'utility/futureUtility.dart';
 import 'utility/randomApi.dart';
 
 void main(List<String> arguments) async {
-
 //Classic like promise style!
-greet("solen")
-.then((userName)=>userName)
-.then((response)=>print("My motto: $response"))
-.catchError((err)=>print(err));
+  greet("solen")
+      .then((userName) => userName)
+      .then((response) => print("My motto: $response"))
+      .catchError((err) => print(err));
 
-
-var util = new FutureUtility();
-print(await util.order);
-/* Fetching the Planet9  API
- *
-*/
-  List<dynamic> planet9Users = await fetchPlanet9API();
-  print("Planet9 API Users:$planet9Users");
+  var util = new FutureUtility();
+  print(await util.order);
 
 /* Fetching the Random API
  *
@@ -31,6 +24,12 @@ print(await util.order);
   List<RandomUser> randomUserList =
       randomUsers.map((randomUser) => RandomUser.fromJSON(randomUser)).toList();
   print("Random API:$randomUserList");
+
+/* Fetching the Planet9  API
+ *
+*/
+  List<dynamic> planet9Users = await fetchPlanet9API();
+  print("Planet9 API Users:$planet9Users");
 
 //fetch single Album
   Map<String, dynamic> album = await fetchSingleAlbum();
